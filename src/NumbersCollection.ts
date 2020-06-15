@@ -1,6 +1,12 @@
 import { Sorter } from './Sorter';
 
-export class NumberCollection extends Sorter {
+interface Sortable {
+  length: number;
+  compare(leftIndex: number, rightIndex: number): boolean;
+  swap(leftIndex: number, rightIndex: number): void;
+}
+
+export class NumberCollection extends Sorter implements Sortable {
 
   constructor(public data: number[]) {
     super();
